@@ -31,9 +31,20 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Store environment variables securely across my app
+gem 'figaro'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry' # use pry debugger tool
+  gem 'rspec-rails' # use rspec in place of minitest
+  gem 'shoulda-matchers' # easy model association and validation testing
+  gem 'capybara' # integration testing
+  gem 'launchy' # open the app in a browser for additional debugging
+  gem 'database_cleaner' # clean the db between tests
+  gem 'factory_girl_rails' # generate db objects wihout repetitive code in tests
+  gem 'simplecov', require: false # generate test coverage reports
 end
 
 group :development do
