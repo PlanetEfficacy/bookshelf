@@ -41,8 +41,9 @@ group :development, :test do
   gem 'rspec-rails' # use rspec in place of minitest
   gem 'shoulda-matchers' # easy model association and validation testing
   gem 'capybara' # integration testing
+  # gem 'selenium-webdriver'
   gem 'launchy' # open the app in a browser for additional debugging
-  gem 'database_cleaner' # clean the db between tests
+  # gem 'database_cleaner' # clean the db between tests
   gem 'factory_girl_rails' # generate db objects wihout repetitive code in tests
   gem 'simplecov', require: false # generate test coverage reports
 end

@@ -1,7 +1,7 @@
-# spec/features/author_spec.rb
+# spec/system/author_spec.rb
 require 'rails_helper'
 
-feature 'author CRUD' do
+feature 'author CRUD', type: :system do
   scenario 'using web interface' do
     create_new_author
     visit_author_index
