@@ -1,7 +1,7 @@
 # spec/system/book_spec.rb
 require 'rails_helper'
 
-describe 'genre crud', type: :system do
+describe 'book crud', type: :system do
   let!(:author) { create :author }
   let!(:genre)  { create :genre }
   scenario 'using web interface' do
