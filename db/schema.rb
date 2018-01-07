@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028210844) do
+ActiveRecord::Schema.define(version: 20171031033142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20171028210844) do
     t.index ["first_name", "last_name", "date_of_birth"], name: "index_authors_on_first_name_and_last_name_and_date_of_birth", unique: true
   end
 
+  create_table "books", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "genre_id"
+    t.text "title"
+    t.date "published"
+    t.integer "hours"
+    t.integer "pages"
+    t.string "amazon_url"
+    t.string "audible_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["genre_id"], name: "index_books_on_genre_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.boolean "fiction", default: false
@@ -31,4 +46,6 @@ ActiveRecord::Schema.define(version: 20171028210844) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "genres"
 end

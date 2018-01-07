@@ -13,4 +13,11 @@ RSpec.describe Author, type: :model do
       expect { author.save! }.to raise_error ActiveRecord::RecordNotUnique
     end
   end
+
+  describe '#display_name' do
+    it 'returns concatenated first and last name' do
+      author = create :author, first_name: 'Frank', last_name: 'Herbert'
+      expect(author.display_name).to eq 'Frank Herbert'
+    end
+  end
 end
