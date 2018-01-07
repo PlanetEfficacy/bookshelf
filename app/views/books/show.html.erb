@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author.display_name %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @book.genre.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @book.published %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @book.hours %>
+</p>
+
+<p>
+  <strong>Pages:</strong>
+  <%= @book.pages %>
+</p>
+
+<p>
+  <strong>Amazon url:</strong>
+  <%= @book.amazon_url %>
+</p>
+
+<p>
+  <strong>Audible url:</strong>
+  <%= @book.audible_url %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

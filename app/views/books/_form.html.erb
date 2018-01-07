@@ -1,0 +1,55 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= collection_select(:author, :author_id, Author.all, :id, :display_name, prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= collection_select(:genre, :genre_id, Genre.all, :id, :name, prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title, id: :book_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published %>
+    <%= form.date_select :published, id: :book_published %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hours %>
+    <%= form.number_field :hours, id: :book_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pages %>
+    <%= form.number_field :pages, id: :book_pages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amazon_url %>
+    <%= form.text_field :amazon_url, id: :book_amazon_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :audible_url %>
+    <%= form.text_field :audible_url, id: :book_audible_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

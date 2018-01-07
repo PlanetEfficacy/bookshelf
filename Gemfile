@@ -44,7 +44,7 @@ group :development, :test do
   # gem 'selenium-webdriver'
   gem 'launchy' # open the app in a browser for additional debugging
   # gem 'database_cleaner' # clean the db between tests
-  gem 'factory_girl_rails' # generate db objects wihout repetitive code in tests
+  gem 'factory_bot_rails' # generate db objects wihout repetitive code in tests
   gem 'simplecov', require: false # generate test coverage reports
 end
 

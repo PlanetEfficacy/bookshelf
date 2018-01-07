@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :genre do
-    name "MyString"
+    name "History"
     fiction false
   end
 end
