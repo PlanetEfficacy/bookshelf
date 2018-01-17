@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Store environment variables securely across my app
 gem 'figaro'
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
