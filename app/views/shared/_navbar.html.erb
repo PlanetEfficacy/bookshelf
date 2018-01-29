@@ -1,0 +1,27 @@
+<%= content_tag :nav, class: 'navbar navbar-expand-lg navbar-dark bg-dark' do %>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <%= image_tag '/assets/bookshelf_logo.jpeg', width: '40', height: '30', class: 'd-inline-block align-top' %>
+    Bookshelf
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= content_tag :div, class: 'collapse navbar-collapse', id: 'navbarNav' do %>
+    <%= content_tag :ul, class: 'navbar-nav' do %>
+      <%= render 'shared/navbar_link', link_text: 'Books', path: books_path  %>
+      <%= render 'shared/navbar_link', link_text: 'Authors', path: authors_path  %>
+      <%= render 'shared/navbar_link', link_text: 'Genres', path: genres_path  %>
+      <%= render 'shared/navbar_link', link_text: 'Reviews', path: reviews_path  %>
+      <%= content_tag :li, class: 'nav-item dropdown' do %>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Forms
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to 'Books', new_book_path, class: 'dropdown-item' %>
+          <%= link_to 'Authors', new_author_path, class: 'dropdown-item' %>
+          <%= link_to 'Genres', new_genre_path, class: 'dropdown-item' %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
