@@ -1,5 +1,4 @@
-<h1>New Book</h1>
-
-<%= render 'form', book: @book %>
-
-<%= link_to 'Back', books_path %>
+<%= content_tag :div, class: 'container' do %>
+  <%= content_tag :h1, 'New Book', class: 'display-4' %>
+  <%= render 'form', book: @book %>
+<% end %>
