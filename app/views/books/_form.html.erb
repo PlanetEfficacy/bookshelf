@@ -11,45 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= collection_select(:author, :author_id, Author.all, :id, :display_name, prompt: true) %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Author:' %>
+    <%= collection_select :author, :author_id, Author.all, :id, :display_name, { prompt: true }, { class: 'form-control' } %>
+  <% end %>
 
-  <div class="field">
-    <%= collection_select(:genre, :genre_id, Genre.all, :id, :name, prompt: true) %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Genre:'  %>
+    <%= collection_select :genre, :genre_id, Genre.all, :id, :name, { prompt: true }, { class: 'form-control' } %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title, id: :book_title %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Title:'  %>
+    <%= form.text_area :title, id: :book_title, class: 'form-control' %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :published %>
-    <%= form.date_select :published, id: :book_published %>
-  </div>
+  <%= content_tag :label, 'Published:'  %>
+  <%= content_tag :div, class: 'form-group input-group date' do %>
+    <%= form.text_field :published, id: :book_published, data: { provide: 'datepicker' }, class: 'form-control' %>
+    <%= content_tag :div, class: 'input-group-append' do %>
+      <%= content_tag :span, class: 'input-group-text' do %>
+        <%= content_tag :i, nil, class: 'fa fa-calendar-o' %>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :hours %>
-    <%= form.number_field :hours, id: :book_hours %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Hours:'  %>
+    <%= form.number_field :hours, id: :book_hours, class: 'form-control'  %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :pages %>
-    <%= form.number_field :pages, id: :book_pages %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Pages:'  %>
+    <%= form.number_field :pages, id: :book_pages, class: 'form-control'  %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :amazon_url %>
-    <%= form.text_field :amazon_url, id: :book_amazon_url %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Amazon Url:'  %>
+    <%= form.number_field :amazon_url, id: :book_amazon_url, class: 'form-control'  %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :audible_url %>
-    <%= form.text_field :audible_url, id: :book_audible_url %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Audible Url:'  %>
+    <%= form.number_field :audible_url, id: :book_audible_url, class: 'form-control' %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= form.submit 'Create Book', class: 'btn btn-outline-primary' %>
+  <% end %>
 <% end %>
