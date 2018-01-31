@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180117044005) do
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["genre_id"], name: "index_books_on_genre_id"
   end
-  
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.boolean "fiction", default: false
