@@ -1,32 +1,38 @@
 <%= form_with(model: author, local: true) do |form| %>
   <% if author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
-
-      <ul>
-      <% author.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= content_tag :div, class: 'alert alert-danger', id: 'error_explanation' do %>
+      <%= content_tag :h6 do %>
+        <%= pluralize(author.errors.count, 'error') %> prohibited this author from being saved:
       <% end %>
-      </ul>
-    </div>
+      <%= content_tag :ol do %>
+        <% author.errors.full_messages.each do |message| %>
+          <%= content_tag :li, message %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :author_first_name %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'First Name:' %>
+    <%= form.text_field :first_name, id: :author_first_name, class: 'form-control' %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :author_last_name %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Last Name:' %>
+    <%= form.text_field :last_name, id: :author_last_name, class: 'form-control' %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth, start_year: 1800, id: :author_date_of_birth %>
-  </div>
+  <%= content_tag :label, 'Date of Birth:'  %>
+  <%= content_tag :div, class: 'form-group input-group date' do %>
+    <%= form.text_field :date_of_birth, id: :author_date_of_birth, data: { provide: 'datepicker' }, class: 'form-control' %>
+    <%= content_tag :div, class: 'input-group-append' do %>
+      <%= content_tag :span, class: 'input-group-text' do %>
+        <%= content_tag :i, nil, class: 'fa fa-calendar-o' %>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= form.submit 'Create Author', class: 'btn btn-outline-primary' %>
+  <% end %>
 <% end %>

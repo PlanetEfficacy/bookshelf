@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    @book.published = published_date
     @book.genre = genre
     @book.author = author
     respond_to do |format|
@@ -69,11 +70,11 @@ class BooksController < ApplicationController
     end
 
     def author
-      Author.find author_params[:author_id]
+      Author.find_by_id(author_params[:author_id])
     end
 
     def genre
-      Genre.find genre_params[:genre_id]
+      Genre.find_by_id(genre_params[:genre_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -87,5 +88,9 @@ class BooksController < ApplicationController
 
     def genre_params
       params.require(:genre).permit(:genre_id)
+    end
+
+    def published_date
+      Date.strptime(book_params['published'], '%m/%d/%Y')
     end
 end

@@ -1,27 +1,28 @@
 <%= form_with(model: genre, local: true) do |form| %>
   <% if genre.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
-
-      <ul>
-      <% genre.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= content_tag :div, class: 'alert alert-danger', id: 'error_explanation' do %>
+      <%= content_tag :h6 do %>
+        <%= pluralize(genre.errors.count, 'error') %> prohibited this genre from being saved:
       <% end %>
-      </ul>
-    </div>
+      <%= content_tag :ol do %>
+        <% genre.errors.full_messages.each do |message| %>
+          <%= content_tag :li, message %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :genre_name %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= content_tag :label, 'Name:' %>
+    <%= form.text_field :name, id: :genre_name, class: 'form-control' %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :fiction %>
+  <%= content_tag :div, class: 'form-group' do %>
     <%= form.check_box :fiction, id: :genre_fiction %>
-  </div>
+    <%= content_tag :label, 'Fiction', class: 'form-check-label', for: 'genre_fiction' %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= content_tag :div, class: 'form-group' do %>
+    <%= form.submit 'Create Genre', class: 'btn btn-outline-primary' %>
+  <% end %>
 <% end %>

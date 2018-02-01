@@ -1,0 +1,20 @@
+<%= content_tag :div, class: 'col-sm-4 mt-4' do %>
+  <%= content_tag :div, class: 'card bg-light' do %>
+    <%= content_tag :div, class: 'card-body' do %>
+      <%= content_tag :h5, book.title, class: 'card-title' %>
+      <%= content_tag :h6, book.author.display_name, class: 'card-subtitle mb-2 text-muted' %>
+      <%= content_tag :p, book.published %>
+      <%= content_tag :p do %>
+        <%= link_to book do %>
+          <%= fa_stacked_icon "link", base: "square-o" %>
+        <% end %>
+        <%= link_to edit_book_path(book) do %>
+          <%= fa_stacked_icon "edit", base: "square-o" %>
+        <% end %>
+        <%= link_to book, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= fa_stacked_icon "trash", base: "square-o" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
