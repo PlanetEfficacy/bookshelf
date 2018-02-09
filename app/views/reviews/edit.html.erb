@@ -1,6 +1,4 @@
-<h1>Editing Review</h1>
-
-<%= render 'form', review: @review %>
-
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+<%= content_tag :div, class: 'container' do %>
+  <%= content_tag :h1, 'Edit Review', class: 'display-4' %>
+  <%= render 'form', book: @review %>
+<% end %>

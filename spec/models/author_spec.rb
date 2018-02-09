@@ -20,4 +20,8 @@ RSpec.describe Author, type: :model do
       expect(author.display_name).to eq 'Frank Herbert'
     end
   end
+
+  describe '#associations' do
+    it { should have_many(:books) }
+  end
 end

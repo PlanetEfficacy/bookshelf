@@ -1,5 +1,5 @@
-<%= form_with(model: author, local: true) do |form| %>
-  <% if author.errors.any? %>
+<%= form_with(model: @author, local: true) do |form| %>
+  <% if @author.errors.any? %>
     <%= content_tag :div, class: 'alert alert-danger', id: 'error_explanation' do %>
       <%= content_tag :h6 do %>
         <%= pluralize(author.errors.count, 'error') %> prohibited this author from being saved:
