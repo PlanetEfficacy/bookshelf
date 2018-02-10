@@ -8,6 +8,7 @@
   </button>
   <%= content_tag :div, class: 'collapse navbar-collapse', id: 'navbarNav' do %>
     <%= content_tag :ul, class: 'navbar-nav' do %>
+      <%= render 'shared/login_logout' %>
       <%= render 'shared/navbar_link', link_text: 'Books', path: books_path  %>
       <%= render 'shared/navbar_link', link_text: 'Authors', path: authors_path  %>
       <%= render 'shared/navbar_link', link_text: 'Genres', path: genres_path  %>

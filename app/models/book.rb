@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
   belongs_to :genre
+  belongs_to :user
 
   validates_presence_of :author
   validates_presence_of :genre
