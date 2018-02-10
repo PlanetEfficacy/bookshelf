@@ -6,6 +6,8 @@ class Genre < ApplicationRecord
   scope :fiction, -> { where(fiction: true) }
   scope :nonfiction, -> { where(fiction: false) }
 
+  default_scope { order(:name) }
+
   def fiction?
     fiction
   end
