@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :review do
     body "This book is amazing."
-    book
+    user { create :user }
+    book { create :book, user: user }
   end
 end

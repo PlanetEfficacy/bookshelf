@@ -6,4 +6,9 @@ RSpec.describe User, type: :model do
       expect(build(:user)).to be_valid
     end
   end
+
+  describe 'associations' do
+    it { should have_many(:books).dependent(:destroy) }
+    it { should have_many :reviews }
+  end
 end
