@@ -8,6 +8,12 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe 'associations' do
+    it { should belong_to(:genre) }
+    it { should belong_to(:author) }
+    it { should belong_to(:user) }
+  end
+
   describe '#validations' do
     it { should belong_to :author }
     it { should belong_to :genre }

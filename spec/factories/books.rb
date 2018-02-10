@@ -8,5 +8,6 @@ FactoryBot.define do
     pages 1
     amazon_url "MyString"
     audible_url "MyString"
+    user
   end
 end

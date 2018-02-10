@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = current_user.reviews
   end
 
   # GET /reviews/1
@@ -26,6 +26,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.book = book
+    @review.user = current_user
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }

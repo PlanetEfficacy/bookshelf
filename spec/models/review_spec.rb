@@ -7,4 +7,9 @@ RSpec.describe Review, type: :model do
       expect(review).to be_valid
     end
   end
+
+  describe 'associations' do
+    it { should belong_to(:book) }
+    it { should belong_to(:user) }
+  end
 end
