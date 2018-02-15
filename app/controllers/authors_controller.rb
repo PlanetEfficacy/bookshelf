@@ -25,6 +25,7 @@ class AuthorsController < ApplicationController
   # POST /authors.json
   def create
     @author = Author.new(author_params)
+    @author.date_of_birth = date_of_birth
     respond_to do |format|
       if @author.save
         format.html { redirect_to @author, notice: 'Author was successfully created.' }
@@ -69,5 +70,9 @@ class AuthorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
       params.require(:author).permit(:first_name, :last_name, :date_of_birth)
+    end
+
+    def date_of_birth
+      Date.strptime(author_params['date_of_birth'], '%m/%d/%Y')
     end
 end
