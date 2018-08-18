@@ -40,6 +40,8 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-rails'
+gem 'administrate'
+gem "awesome_print"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :genre
   belongs_to :user
+  has_many :reviews
 
   validates_presence_of :author
   validates_presence_of :genre
@@ -10,7 +11,6 @@ class Book < ApplicationRecord
   validates_uniqueness_of :title
 
   validate :amazon_audible_url
-
 
   private
 
