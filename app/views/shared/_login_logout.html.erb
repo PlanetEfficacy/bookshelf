@@ -1,6 +1,0 @@
-<% if current_user %>
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-<% else %>
-  <%= render 'shared/navbar_link', link_text: 'Register', path: new_user_registration_path  %>
-  <%= render 'shared/navbar_link', link_text: 'Sign in', path: new_user_session_path  %>
-<% end %>

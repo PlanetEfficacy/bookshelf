@@ -1,8 +1,0 @@
-<%= content_tag :div, class: 'container' do %>
-  <%= render 'shared/header', title: 'Authors' %>
-  <%= content_tag :div, class: 'row' do %>
-    <% @authors.each_with_index do |author, index| %>
-      <%= render 'shared/author_card', author: author %>
-    <% end %>
-  <% end %>
-<% end %>

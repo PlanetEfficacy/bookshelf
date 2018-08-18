@@ -12,6 +12,7 @@ RSpec.describe Book, type: :model do
     it { should belong_to(:genre) }
     it { should belong_to(:author) }
     it { should belong_to(:user) }
+    it { should have_many(:reviews) }
   end
 
   describe '#validations' do

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :authors
+    resources :books
+    resources :genres
+    resources :reviews
+
+    root to: "users#index"
+  end
+
   devise_for :users
-  root to: 'books#index'
-  resources :reviews
-  resources :books
-  resources :genres
-  resources :authors
+  root to: 'admin/books#index'
 end
